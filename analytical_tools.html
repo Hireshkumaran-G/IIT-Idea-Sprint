@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytical Tools Access</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .access-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .title {
+            color: #4f46e5;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .tool-links {
+            display: grid;
+            gap: 15px;
+        }
+
+        .tool-link {
+            display: block;
+            padding: 20px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .tool-link:hover {
+            border-color: #4f46e5;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.1);
+        }
+
+        .tool-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #4f46e5;
+        }
+
+        .tool-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .tool-desc {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .isolation-badge {
+            background: #ef4444;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="access-panel">
+        <div class="title">🔬 Analytical Tools</div>
+        <div class="subtitle">Independent analysis layers for GeoAI LULC Pipeline</div>
+        
+        <div class="tool-links">
+            <a href="pixel_inspector.html" class="tool-link">
+                <div class="tool-icon">🔍</div>
+                <div class="tool-title">Pixel Inspector</div>
+                <div class="tool-desc">Interactive pixel exploration and classification analysis</div>
+            </a>
+            
+            <a href="pixel_analytical_view.html" class="tool-link">
+                <div class="tool-icon">🧩</div>
+                <div class="tool-title">
+                    Layer 3 - Pixel-Level Change Inspection
+                    <span class="isolation-badge">ISOLATED</span>
+                </div>
+                <div class="tool-desc">Deep, auditable, per-pixel verification with transition probabilities</div>
+            </a>
+        </div>
+        
+        <div style="margin-top: 20px; font-size: 12px; color: #888;">
+            <i class="fas fa-info-circle"></i>
+            All tools are read-only reflections of pipeline outputs
+        </div>
+    </div>
+</body>
+</html>
