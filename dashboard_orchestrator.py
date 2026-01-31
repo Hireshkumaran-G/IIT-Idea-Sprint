@@ -731,7 +731,8 @@ if __name__ == '__main__':
     for year in VALID_YEARS:
         folder_path = get_year_folder_path(year)
         verification = verify_folder_bands(folder_path)
-        status = "✓" if verification['valid'] else "❌"
+        status = "✓" if verification['valid'] else "no"
         log_message(f"{status} Year {year}: {folder_path}")
     
+
     app.run(host='0.0.0.0', port=5000, debug=False)
