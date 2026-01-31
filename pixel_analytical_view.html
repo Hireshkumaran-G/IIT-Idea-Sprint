@@ -317,7 +317,7 @@
                     const response = await fetch('/transition_statistics.json');
                     if (response.ok) {
                         this.transitionData = await response.json();
-                        console.log('✅ Loaded transition data for analytical view');
+                        console.log(' Loaded transition data for analytical view');
                         this.generatePixelAnalysis();
                     } else {
                         this.showNoData();
@@ -521,7 +521,7 @@
                         const oldTimestamp = JSON.stringify(this.transitionData);
                         
                         if (newTimestamp !== oldTimestamp) {
-                            console.log('🔄 Pipeline outputs updated - refreshing analytical view');
+                            console.log(' Pipeline outputs updated - refreshing analytical view');
                             this.transitionData = newData;
                             this.generatePixelAnalysis();
                         }
@@ -536,4 +536,5 @@
         const pixelAnalytical = new PixelAnalyticalView();
     </script>
 </body>
+
 </html>
