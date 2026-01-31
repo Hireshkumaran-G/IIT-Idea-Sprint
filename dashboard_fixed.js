@@ -116,7 +116,7 @@ class GeoAIDashboard {
         // Add available years with status indicators
         validYears.forEach(year => {
             const status = folderStatus.find(f => f.year === year) || { valid: true };
-            const statusIcon = status.valid ? '✓' : '❌';
+            const statusIcon = status.valid ? 'yes':'no';
             const displayText = `${statusIcon} Tirupati ${year}`;
             
             console.log(`Adding year ${year} with status:`, status);
@@ -200,7 +200,7 @@ class GeoAIDashboard {
         const panel = document.getElementById('validationPanel');
         panel.classList.remove('hidden');
         
-        this.updateValidationStatus(`❌ ${error}`, 'error');
+        this.updateValidationStatus(` ${error}`, 'error');
     }
 
     updateFolderStatus(elementId, folderData) {
@@ -224,7 +224,7 @@ class GeoAIDashboard {
             <div class="file-status">
                 ${requiredBands.map(band => {
                     const found = verification.bands_found[band] || 0;
-                    const status = found > 0 ? '✓' : '❌';
+                    const status = found > 0 ? 1:0;
                     const statusClass = found > 0 ? 'found' : 'missing';
                     return `<span class="band-status ${statusClass}">${status} ${band} (${found} files)</span>`;
                 }).join('')}
@@ -1185,4 +1185,5 @@ class GeoAIDashboard {
 // Initialize dashboard when page loads
 document.addEventListener('DOMContentLoaded', () => {
     window.dashboard = new GeoAIDashboard();
+
 });
