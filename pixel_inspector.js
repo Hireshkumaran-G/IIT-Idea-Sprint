@@ -354,7 +354,7 @@ class PixelInspector {
             // Update transition analysis with actual calculations
             this.updateTransitionAnalysisWithData(pixelData);
             
-            console.log('✅ Pixel analysis updated with actual data:', pixelData);
+            console.log(' Pixel analysis updated with actual data:', pixelData);
             
         } catch (error) {
             console.error('Failed to fetch pixel data:', error);
@@ -663,3 +663,4 @@ document.addEventListener('DOMContentLoaded', function() {
 // Completely independent from dashboard - no cross-interference
 
 console.log(' Pixel Inspector System Initialized - Independent Mode');
+
