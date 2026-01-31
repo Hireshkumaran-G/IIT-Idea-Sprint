@@ -37,7 +37,7 @@ class PixelInspector {
                 const lastCheck = localStorage.getItem('pixel_inspector_last_check') || '0';
                 
                 if (status.timestamp > lastCheck) {
-                    console.log('🔄 Pipeline completed - refreshing pixel inspector data...');
+                    console.log(' Pipeline completed - refreshing pixel inspector data...');
                     await this.loadPipelineData();
                     await this.loadActualMapData();
                     this.renderMaps();
@@ -65,7 +65,7 @@ class PixelInspector {
             border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             font-weight: 600; animation: slideIn 0.3s ease;
         `;
-        notification.innerHTML = '✅ Data refreshed with latest pipeline results!';
+        notification.innerHTML = ' Data refreshed with latest pipeline results!';
         
         document.body.appendChild(notification);
         
@@ -120,7 +120,7 @@ class PixelInspector {
                 const currentTime = Date.now().toString();
                 
                 if (lastUpdate !== currentTime) {
-                    console.log('🔄 New pipeline results detected - refreshing pixel data...');
+                    console.log(' New pipeline results detected - refreshing pixel data...');
                     await this.loadActualMapData();
                     localStorage.setItem('pixel_inspector_last_update', currentTime);
                 }
@@ -141,7 +141,7 @@ class PixelInspector {
             
             if (outputResponse.ok) {
                 const outputData = await outputResponse.json();
-                console.log('📊 Loading actual pipeline output data:', outputData);
+                console.log(' Loading actual pipeline output data:', outputData);
                 
                 // Update with real transition matrix data
                 if (outputData.transition_statistics) {
@@ -153,13 +153,13 @@ class PixelInspector {
                         yearPair: outputData.year_pair || '2016 → 2018'
                     };
                     
-                    console.log('✅ Pixel Inspector updated with actual model outputs');
+                    console.log(' Pixel Inspector updated with actual model outputs');
                 } else {
-                    console.log('📄 Using simulated data based on model outputs');
+                    console.log(' Using simulated data based on model outputs');
                     this.loadSimulatedData();
                 }
             } else {
-                console.log('📄 Pipeline outputs not available, using model-based simulation');
+                console.log(' Pipeline outputs not available, using model-based simulation');
                 this.loadSimulatedData();
             }
         } catch (error) {
@@ -444,13 +444,13 @@ class PixelInspector {
             </div>
             ${isChanged ? `
                 <div class="change-details" style="margin-top: 1rem; padding: 1rem; background: #fef3c7; border-radius: 8px; color: #92400e;">
-                    <strong>⚠️ Land Cover Change Detected</strong><br>
+                    <strong> Land Cover Change Detected</strong><br>
                     This pixel underwent significant land cover transition between ${this.mapData?.yearPair || 'the selected periods'}.
                     <br><small>Area affected: ${pixelData.pixel_location?.area_hectares?.toFixed(4) || 0.01} hectares</small>
                 </div>
             ` : `
                 <div class="stable-details" style="margin-top: 1rem; padding: 1rem; background: #dcfce7; border-radius: 8px; color: #166534;">
-                    <strong>✅ Stable Classification</strong><br>
+                    <strong>Stable Classification</strong><br>
                     This pixel maintained consistent land cover classification.
                     <br><small>Stable area: ${pixelData.pixel_location?.area_hectares?.toFixed(4) || 0.01} hectares</small>
                 </div>
@@ -661,4 +661,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Completely independent from dashboard - no cross-interference
-console.log('🔍 Pixel Inspector System Initialized - Independent Mode');
+
+console.log(' Pixel Inspector System Initialized - Independent Mode');
